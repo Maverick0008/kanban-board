@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ProfileMenu from "./components/profileMenu";
+import "./App.css";
+import Header from "./components/header/index.";
+import { BrowserRouter as Router } from "react-router-dom";
+import Main from "./components/main";
+import data from './mock.json'
 
 function App() {
+  const [tasks, setTasks] = React.useState(data)
+  const [isOpen, setIsOpen] = React.useState(false);
+  const toogle = () => {
+    setIsOpen(!isOpen);
+  };
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Header toogle={toogle} isOpen={isOpen} />
+        <ProfileMenu  isOpen={isOpen} />
+        <Main tasks={tasks} setTasks={setTasks} />
+      </Router>
+    </>
   );
 }
 

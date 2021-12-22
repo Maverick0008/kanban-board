@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1, 
+        "title": "Купить Fender Stratocaster", 
+        "status": "backlog",
+        "description": "task 1" 
+    },
+    {
+        "id": 2, 
+        "title": "Купить усилитель BOSS ME-80", 
+        "status": "backlog",
+        "description": "task 2" 
+    },
+    {
+        "id": 3, 
+        "title": "Изучить HTML и CSS", 
+        "status": "ready",
+        "description": "task 3" 
+    },
+    {
+        "id": 4, 
+        "title": "Изучить React", 
+        "status": "backlog",
+        "description": "task 4" 
+    }
+]
