@@ -10,7 +10,7 @@ import {
 
  } from "./ListElements";
 
-const List = ({title, type, tasks, addNewTask, setTasks}) => {
+const List = ({title, type, tasks, addNewTask, setTasks,listTasks}) => {
 const [isFormVisible, setIsFormVisible] = React.useState(false)
 
 
@@ -18,13 +18,21 @@ const handleClick =() => {
     setIsFormVisible(!isFormVisible)
     
 }
-
+let dropDownTask;
+if (title === 'Ready') {
+  dropDownTask = tasks.filter(task => task.status === 'backlog')
+}else if (title === 'In progress') {
+  dropDownTask = tasks.filter(task => task.status === 'ready')
+}else if (title === 'Finished') {
+  dropDownTask = tasks.filter(task => task.status === 'inProgress')
+}
+console.log(dropDownTask)
 
   return (
     <>
       <ListItem>
         <ListTitle>{title}</ListTitle>
-            {tasks.map(task => {
+            {listTasks.map(task => {
                 return(
                     <ListTask key={task.id}>{task.title}</ListTask>
                 )
@@ -35,8 +43,8 @@ const handleClick =() => {
             {type === LIST_TYPES.BACKLOG  && (
                 <ListButton onClick={handleClick}>+ Add new task</ListButton>
             )}
-           {type === LIST_TYPES.READY  && (
-                <SelectTasks />
+           {type !== LIST_TYPES.BACKLOG  && (
+                <SelectTasks title={title} setTasks={setTasks} tasks={tasks} dropDownTask={dropDownTask}  />
             )}
       </ListItem>
     </>

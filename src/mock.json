@@ -4,17 +4,18 @@
         "title": "Купить Fender Stratocaster", 
         "status": "backlog",
         "description": "task 1" 
+        
     },
     {
         "id": 2, 
         "title": "Купить усилитель BOSS ME-80", 
-        "status": "backlog",
+        "status": "inProgress",
         "description": "task 2" 
     },
     {
         "id": 3, 
         "title": "Изучить HTML и CSS", 
-        "status": "ready",
+        "status": "backlog",
         "description": "task 3" 
     },
     {

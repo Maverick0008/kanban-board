@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const ListItem = styled.div`
     width: 292px;
-    
+    overflow: scroll;
+    height: 100%;
     background: #EBECF0;
     margin-right: 24px;
     padding-bottom: 8px;

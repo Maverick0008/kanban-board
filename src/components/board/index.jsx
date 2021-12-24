@@ -4,11 +4,11 @@ import { BoardContainer } from "./BoardElements";
 import List from "../list";
 const Board = (props) => {
   const { tasks, setTasks } = props;
-  const addNewTask = (title) => {
+  const addNewTask = (title,description) => {
     const newTask = {
       id: Math.floor(Math.random() * 1000),
       title: title,
-      description: "",
+      description: description,
       status: LIST_TYPES.BACKLOG
     };
     setTasks([...tasks, newTask]);
@@ -23,7 +23,8 @@ const Board = (props) => {
             <List
               key={type}
               type={type}
-              tasks={listTasks}
+              tasks={tasks}
+              listTasks={listTasks}
               addNewTask={addNewTask}
               title={LIST_COPY[type]}
             />
