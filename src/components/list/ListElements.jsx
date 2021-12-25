@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const ListItem = styled.div`
     width: 292px;
-    overflow: scroll;
-    height: 100%;
+    height: auto;
     background: #EBECF0;
     margin-right: 24px;
     padding-bottom: 8px;
@@ -22,7 +21,7 @@ export const ListTask = styled.div`
 	margin: 15px 12px ;
 	padding: 8px;
 	border-radius: 8px;
-    width: 246px;
+    width: 242px;
 `
 
 export const ListButton = styled.button`

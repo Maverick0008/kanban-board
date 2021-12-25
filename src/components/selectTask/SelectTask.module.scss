@@ -1,31 +1,30 @@
 .customSelect {
-    position: absolute;
+    position: relative;
 }
 select {
     width: 258px;
     margin-left: 12px;
     font-size: 18px;
+    height: 35px;
     line-height: 21px;
     padding: 8px 10px;
     border: none;
     padding-right: 15px;
-
     appearance: none;
+    border-radius: 8px;
    
 }
 .customArrow {
-    position: inherit;
-   width: 15px;
     top: 12px;
-    right: 11px;
+    right:30px;
     cursor: pointer;
-    margin-left: 14px;
+    position: absolute;
 
 }
 .optionWrapper {
-    width: 258px;
+    width: 255px;
     border: 1px solid #ffffff;
-    border-radius: 5px;
+    border-radius: 8px;
     margin-left: 12px;
     margin-top: 5px;
     :hover {

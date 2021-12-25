@@ -21,10 +21,10 @@ const handleClick =() => {
 let dropDownTask;
 if (title === 'Ready') {
   dropDownTask = tasks.filter(task => task.status === 'backlog')
-}else if (title === 'In progress') {
+}else if (title === 'In Progress') {
   dropDownTask = tasks.filter(task => task.status === 'ready')
 }else if (title === 'Finished') {
-  dropDownTask = tasks.filter(task => task.status === 'inProgress')
+  dropDownTask = tasks.filter(task => task.status === 'in Progress')
 }
 console.log(dropDownTask)
 

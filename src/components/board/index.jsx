@@ -26,6 +26,7 @@ const Board = (props) => {
               tasks={tasks}
               listTasks={listTasks}
               addNewTask={addNewTask}
+              setTasks={setTasks}
               title={LIST_COPY[type]}
             />
           );
