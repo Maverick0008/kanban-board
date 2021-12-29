@@ -1,9 +1,11 @@
 .customSelect {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
 }
-select {
+.select {
     width: 258px;
-    margin-left: 12px;
+    margin: 0 0 12px 12px;
     font-size: 18px;
     height: 35px;
     line-height: 21px;
@@ -14,6 +16,25 @@ select {
     border-radius: 8px;
    
 }
+.selectButton{
+    width: 85px;
+    background: none;
+	border: none;
+	appearance: none;
+	font-size: 18px;
+	color:#5E6C84;
+	cursor: pointer;
+    margin-left: 12px ;
+}
+.selectButtonDisabled {
+    width: 85px;
+    background: none;
+	border: none;
+	appearance: none;
+	font-size: 14px;
+	color:#8590a1;
+}
+
 .customArrow {
     top: 12px;
     right:30px;
@@ -33,10 +54,8 @@ select {
 
 }}
 .taskSelect {
-    max-width: 240px;
-    font-size: 18px;
-    line-height: 21px;
-    padding: 7px 9px 7px 8px;
-    background: #ffffff;
-    border: 1px solid #ffffff;
+   font-size: 16px;
+   border: none;
+   border-radius: 8px;
+   padding: 6px;
 }

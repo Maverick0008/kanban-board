@@ -4,16 +4,17 @@ const Form = ({ addNewTask,setIsFormVisible }) => {
   const [values, setValues] = React.useState({
     title: ' ',
   });
-  const handleChange = (e) => {
-    const fieldName = e.target.name;
-    setValues({ ...values, [fieldName]: e.target.value });
-  };
+ 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (values.title) {
       addNewTask(values.title);
     }
     setIsFormVisible()
+  };
+  const handleChange = (e) => {
+    const fieldName = e.target.name;
+    setValues({ ...values, [fieldName]: e.target.value });
   };
   
   return (

@@ -1,59 +1,74 @@
 import React from "react";
 import styled from "./SelectTask.module.scss";
-import SelectTaskIcon from "../../assets/selectTask.svg";
-import { LIST_TYPES } from "../../config";
-const SelectTask = ({ tasks, setTasks, title, dropDownTask }) => {
-  const [isActive, setActive] = React.useState(false);
+const SelectTask = (props) => {
+  const { setTasks, type, allTasks } = props;
 
-  const handleChange = (e) => {
-   
-    const idArray = dropDownTask.find((x) => e.target.value === x.title);
-    console.log(idArray);
-    const updateTasks = tasks.map((task) => {
-      if (task.id === idArray.id) {
-        if (title === "In Progress") {
-          return { ...task, status: LIST_TYPES.IN_PROGRESS };
-        }
-        if (title === "Finished") {
-          return { ...task, status: LIST_TYPES.DONE};
-        }
-        if (title === "Ready") {
-          return { ...task, status: LIST_TYPES.READY };
-        }
-      }
-      return task;
-    });
-    setTasks(updateTasks);
-    setActive(false)
-  };
+  const [isClick, setIsClick] = React.useState(false);
+  const [selected, setSelected] = React.useState("");
+
+  let dropDownTask;
+  switch (type) {
+    case "ready":
+      dropDownTask = "backlog";
+      break;
+
+    case "inProgress":
+      dropDownTask = "ready";
+      break;
+
+    default:
+      dropDownTask = "inProgress";
+  }
+  const array = allTasks.filter((task) => task.status === dropDownTask);
+  const length = array.length;
   return (
     <>
-      <div className={styled.customSelect}>
-        <select onChange={handleChange} value={""}></select>
-        {isActive && (
-          <div className={styled.optionWrapper}>
-            {dropDownTask.map((task) => {
-              return (
-                <option
-                  className={styled.taskSelect}
-                  value={task.title}
-                  key={Math.random() * 1000}
-                  onClick={handleChange}
-                >
-                  {task.title}
-                </option>
-              );
-            })}
-          </div>
-        )}
-
-        <div
-          onClick={(e) => setActive(!isActive)}
-          className={styled.customArrow}
+      {!isClick ? (
+        <button
+          className={
+            length === 0 ? styled.selectButtonDisabled : styled.selectButton
+          }
+          onClick={() => setIsClick(true)}
+          disabled={length === 0}
         >
-          <img src={SelectTaskIcon} alt="selectTaskIcon"></img>
+          +Add card
+        </button>
+      ) : (
+        <div className={styled.customSelect}>
+          <select
+            className={styled.select}
+            onChange={(e) => setSelected(e.target.value)}
+            value={selected}
+          >
+            <option value={""}></option>
+            {array.map((task) => (
+              <option className={styled.taskSelect} value={task.title}>
+                {task.title}
+              </option>
+            ))}
+          </select>
+          <button
+            className={styled.selectButton}
+            type="text"
+            onClick={() => {
+              if (selected) {
+                const updateTasks = allTasks.map((task) => {
+                  if (selected === task.title) {
+                    return { ...task, status: type };
+                  }
+                  return task;
+                });
+                setTasks(updateTasks);
+                setIsClick(false);
+              } else {
+                setIsClick(false);
+              }
+            }}
+          >
+            + Add task
+          </button>
         </div>
-      </div>
+      )}
     </>
   );
 };

@@ -1,51 +1,33 @@
 import React from "react";
-import {LIST_TYPES} from '../../config'
+import { LIST_TYPES } from "../../config";
 import Form from "../form";
 import SelectTasks from "../selectTask";
-import { 
-    ListItem,
-    ListTitle,
-    ListTask,
-    ListButton
+import { ListItem, ListTitle, ListTask, ListButton,ListTitleTask } from "./ListElements";
 
- } from "./ListElements";
+const List = (props) => {
+  const { title, type, tasks, addNewTask} = props
+  const [isFormVisible, setIsFormVisible] = React.useState(false);
 
-const List = ({title, type, tasks, addNewTask, setTasks,listTasks}) => {
-const [isFormVisible, setIsFormVisible] = React.useState(false)
-
-
-const handleClick =() => {
-    setIsFormVisible(!isFormVisible)
-    
-}
-let dropDownTask;
-if (title === 'Ready') {
-  dropDownTask = tasks.filter(task => task.status === 'backlog')
-}else if (title === 'In Progress') {
-  dropDownTask = tasks.filter(task => task.status === 'ready')
-}else if (title === 'Finished') {
-  dropDownTask = tasks.filter(task => task.status === 'in Progress')
-}
-console.log(dropDownTask)
 
   return (
     <>
       <ListItem>
         <ListTitle>{title}</ListTitle>
-            {listTasks.map(task => {
-                return(
-                    <ListTask key={task.id}>{task.title}</ListTask>
-                )
-            })}
-             {type === LIST_TYPES.BACKLOG  &&  isFormVisible &&(
-                <Form  addNewTask={addNewTask} setIsFormVisible={setIsFormVisible}/>
-            )}
-            {type === LIST_TYPES.BACKLOG  && (
-                <ListButton onClick={handleClick}>+ Add new task</ListButton>
-            )}
-           {type !== LIST_TYPES.BACKLOG  && (
-                <SelectTasks title={title} setTasks={setTasks} tasks={tasks} dropDownTask={dropDownTask}  />
-            )}
+        {tasks.length === 0 && <ListTitleTask>The task list is empty</ListTitleTask>}
+        {tasks.map((task) => {
+          return <ListTask key={task.id}>{task.title}</ListTask>;
+        })}
+        {type === LIST_TYPES.BACKLOG ? (
+          !isFormVisible ? (
+            <ListButton onClick={() => setIsFormVisible(true)}>
+              + Add new task
+            </ListButton>
+          ) : (
+            <Form addNewTask={addNewTask} setIsFormVisible={setIsFormVisible} />
+          )
+        ) : (
+          <SelectTasks {...props}/>
+        )}
       </ListItem>
     </>
   );

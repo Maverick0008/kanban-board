@@ -16,6 +16,10 @@ export const ListTitle = styled.h2`
     margin: 12px;
 
 `
+export const ListTitleTask = styled.h5`
+    margin-left: 12px;
+    margin: 0 0 12px 12px;
+`
 export const ListTask = styled.div`
     background: #fff;
 	margin: 15px 12px ;

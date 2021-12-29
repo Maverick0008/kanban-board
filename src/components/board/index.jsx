@@ -18,13 +18,13 @@ const Board = (props) => {
       <BoardContainer>
         {/*Проходимся по значениям LIST_TYPES и вытаскиваем данные */}
         {Object.values(LIST_TYPES).map((type) => {
-          const listTasks = tasks.filter((task) => task.status === type);
+          const filterTasks = tasks.filter((task) => task.status === type);
           return (
             <List
               key={type}
               type={type}
-              tasks={tasks}
-              listTasks={listTasks}
+              tasks={filterTasks}
+              allTasks={tasks}
               addNewTask={addNewTask}
               setTasks={setTasks}
               title={LIST_COPY[type]}
