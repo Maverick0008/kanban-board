@@ -1,28 +1,31 @@
 import React from "react";
 import { FormGroup, Input, Button } from "./FormElements";
-const Form = ({ addNewTask,setIsFormVisible }) => {
+const Form = ({ addNewTask, setIsFormVisible }) => {
   const [values, setValues] = React.useState({
-    title: ' ',
+    title: "",
   });
- 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (values.title) {
-      addNewTask(values.title);
-    }
-    setIsFormVisible()
-  };
+
   const handleChange = (e) => {
     const fieldName = e.target.name;
+
     setValues({ ...values, [fieldName]: e.target.value });
   };
-  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (values.title) {
+      addNewTask(values.title);
+      setIsFormVisible();
+    } else {
+      alert("Prease, enter task name!");
+    }
+  };
+
   return (
     <>
       <FormGroup onSubmit={handleSubmit}>
         <Input
           name="title"
-          placeholder="Введите название задачи..."
+          placeholder="Enter task name..."
           type="text"
           id="taskTitle"
           value={values.title}

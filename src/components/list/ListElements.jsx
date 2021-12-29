@@ -7,6 +7,13 @@ export const ListItem = styled.div`
     margin-right: 24px;
     padding-bottom: 8px;
     border-radius: 10px;
+
+    @media screen and (max-width: 768px) {
+        margin-top: 50px;
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+    }
  ;
 `
 export const ListTitle = styled.h2`

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const MainWrapper = styled.div`
   background: #0079bf; ;
+  
 `;
 
 export const MainContainer = styled.div`
@@ -10,4 +11,10 @@ export const MainContainer = styled.div`
   margin: 0 auto;
   padding: 20px;
   display: flex;
+  
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
+  
 `;

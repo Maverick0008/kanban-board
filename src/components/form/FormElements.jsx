@@ -13,13 +13,16 @@ export const Input = styled.input`
   color: #000;
   border: none;
   border-radius: 8px;
-  width: 100%;
+  width: 240px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 21px;
   ::placeholder {
     font-size: 14px;
+  }
+  ::invalid {
+    border: 2px solid red;
   }
 `;
 export const Button = styled.button`

@@ -4,7 +4,7 @@ import { BoardContainer } from "./BoardElements";
 import List from "../list";
 const Board = (props) => {
   const { tasks, setTasks } = props;
-  const addNewTask = (title,description) => {
+  const addNewTask = (title,description, errorMessage) => {
     const newTask = {
       id: Math.floor(Math.random() * 1000),
       title: title,
