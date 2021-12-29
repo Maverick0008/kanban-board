@@ -65,7 +65,7 @@ const SelectTask = (props) => {
               }
             }}
           >
-            + Add task
+            + Add card
           </button>
         </div>
       )}

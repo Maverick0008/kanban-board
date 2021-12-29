@@ -20,7 +20,7 @@ const List = (props) => {
         {type === LIST_TYPES.BACKLOG ? (
           !isFormVisible ? (
             <ListButton onClick={() => setIsFormVisible(true)}>
-              + Add new task
+              + Add card
             </ListButton>
           ) : (
             <Form addNewTask={addNewTask} setIsFormVisible={setIsFormVisible} />

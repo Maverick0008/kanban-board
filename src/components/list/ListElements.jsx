@@ -43,4 +43,14 @@ export const ListButton = styled.button`
 	color:#5E6C84;
 	cursor: pointer;
     margin-left: 12px ;
+    margin-bottom: 20px;
+    padding: 4px;
+
+    :hover {
+        background: #fff;
+        border-radius: 5px;
+    }
+`
+export const ListFocus = styled.p`
+    color: red;
 `

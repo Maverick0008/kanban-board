@@ -21,9 +21,6 @@ export const Input = styled.input`
   ::placeholder {
     font-size: 14px;
   }
-  ::invalid {
-    border: 2px solid red;
-  }
 `;
 export const Button = styled.button`
   margin-top: 20px;
@@ -37,3 +34,7 @@ export const Button = styled.button`
   color: #ffffff;
   margin-bottom: 20px;
 `;
+export const ListFocus = styled.p`
+    margin-top: 12px;
+    color: red;
+`

@@ -1,17 +1,22 @@
-import React from "react";
+import React  from "react";
+import { useEffect } from "react";
 import ProfileMenu from "./components/profileMenu";
 import "./App.css";
 import Header from "./components/header/index.";
 import { BrowserRouter as Router } from "react-router-dom";
 import Main from "./components/main";
-import data from './mock.json'
+// import data from './mock.json'
 
 function App() {
-  const [tasks, setTasks] = React.useState(data)
+  const initialState =  JSON.parse(window.localStorage.getItem('tasks')) || []
+  const [tasks, setTasks] = React.useState(initialState)
   const [isOpen, setIsOpen] = React.useState(false);
   const toogle = () => {
     setIsOpen(!isOpen);
   };
+  useEffect(() => {
+    window.localStorage.setItem('tasks', JSON.stringify(tasks))
+  },[tasks])
   
   return (
     <>

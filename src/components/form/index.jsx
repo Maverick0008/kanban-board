@@ -1,10 +1,14 @@
 import React from "react";
-import { FormGroup, Input, Button } from "./FormElements";
+import { FormGroup, Input, Button,ListFocus } from "./FormElements";
 const Form = ({ addNewTask, setIsFormVisible }) => {
   const [values, setValues] = React.useState({
     title: "",
   });
-
+  const name = React.useRef('')
+  const [isValid, setIsValid] = React.useState(true)
+  const nameBlurData = (name) => {
+    setIsValid(!!name);
+  };
   const handleChange = (e) => {
     const fieldName = e.target.name;
 
@@ -16,7 +20,7 @@ const Form = ({ addNewTask, setIsFormVisible }) => {
       addNewTask(values.title);
       setIsFormVisible();
     } else {
-      alert("Prease, enter task name!");
+      nameBlurData()
     }
   };
 
@@ -29,8 +33,11 @@ const Form = ({ addNewTask, setIsFormVisible }) => {
           type="text"
           id="taskTitle"
           value={values.title}
+          onBlur={() => nameBlurData(name.current.value)}
+          ref={name}
           onChange={handleChange}
         ></Input>
+        {!isValid && <ListFocus>Please enter the name of the task</ListFocus>}
         <Button type="submit">Submit</Button>
       </FormGroup>
     </>
