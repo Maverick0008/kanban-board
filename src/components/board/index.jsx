@@ -3,8 +3,8 @@ import { LIST_TYPES, LIST_COPY } from "../../config";
 import { BoardContainer } from "./BoardElements";
 import List from "../list";
 const Board = (props) => {
-  const { tasks, setTasks } = props;
-  const addNewTask = (title,description, errorMessage) => {
+  const { tasks, setTasks,} = props;
+  const addNewTask = (title,description) => {
     const newTask = {
       id: Math.floor(Math.random() * 1000),
       title: title,

@@ -42,7 +42,7 @@ const SelectTask = (props) => {
           >
             <option value={""}></option>
             {array.map((task) => (
-              <option className={styled.taskSelect} value={task.title}>
+              <option  key={task.id} className={styled.taskSelect} value={task.title}>
                 {task.title}
               </option>
             ))}

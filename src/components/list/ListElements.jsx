@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import  {Link} from 'react-router-dom'
 export const ListItem = styled.div`
     width: 292px;
     height: auto;
@@ -14,7 +14,15 @@ export const ListItem = styled.div`
        flex-direction: column;
        align-items: flex-start;
     }
+
  ;
+`
+export const LinkDescription = styled(Link)`
+    color: black;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
 `
 export const ListTitle = styled.h2`
     font-size: 18px;
@@ -34,7 +42,9 @@ export const ListTask = styled.div`
 	border-radius: 8px;
     width: 242px;
 `
-
+// export const Link = styled(Link)`
+//     color:red;
+// `
 export const ListButton = styled.button`
     background: none;
 	border: none;
@@ -42,7 +52,7 @@ export const ListButton = styled.button`
 	font-size: 18px;
 	color:#5E6C84;
 	cursor: pointer;
-    margin-left: 12px ;
+    margin-left: 8px;
     margin-bottom: 20px;
     padding: 4px;
 
@@ -50,7 +60,4 @@ export const ListButton = styled.button`
         background: #fff;
         border-radius: 5px;
     }
-`
-export const ListFocus = styled.p`
-    color: red;
 `
