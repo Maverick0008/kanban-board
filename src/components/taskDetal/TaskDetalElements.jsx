@@ -6,6 +6,15 @@ export const TaskDetalWrapper = styled.div`
   margin: 0 auto;
   padding-left: 20px;
   height: 548px;
+
+  @media screen and (max-width: 768px){
+    min-width: 300px;
+    margin: 0;
+  }
+  @media screen and (max-width: 375px){
+    min-width: 200px;
+    margin: 0;
+  }
  
 `;
 export const TaskDetalHeader = styled.header`
@@ -18,6 +27,11 @@ export const TaskDetalTitle = styled.h2`
     font-size: 24px;
     line-height: 28px;
     padding: 22px 0 0 28px;
+
+    @media screen and (max-width: 768px) {
+    padding: 10px 0 0 0;
+    font-size: 18px;
+}
 `;
 export const TaskDetalButtonClose = styled.button`
 position: relative;
@@ -60,15 +74,22 @@ background: none;
     transform: rotate(-45deg) translate(-50%, -50%);
     }
   
+  
 `;
 export const TaskDetalDescription = styled.div`
    padding: 35px 28px;
+
+   @media screen and (max-width: 768px) {
+    padding: 20px 20px 20px 0;
+}
+
 `;
 export const TaskDetalEdit = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap:nowrap;
     align-items: flex-start;
+    
 `;
 export const ButtonEdit = styled.button`
     margin-left: 28px;
@@ -87,6 +108,9 @@ export const ButtonEdit = styled.button`
        border: 1px solid #0067A3;
        transition:  0.2s ease-in;
     }
+    @media screen and (max-width: 768px) {
+        margin: 0;
+}
 `;
 
 export const TextArea = styled.textarea`
@@ -101,4 +125,12 @@ margin-bottom: 20px;
   background-color: #f8f8f8;
   font-size: 16px;
   resize: none;
+   
+
+    @media screen and (max-width: 768px) {
+        margin:0 10px 20px 0;
+        width: 200px;
+    }
+ 
+  
 `

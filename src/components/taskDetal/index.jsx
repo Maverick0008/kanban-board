@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import {
   TaskDetalWrapper,
   TaskDetalHeader,
@@ -13,11 +12,14 @@ import {
 } from "./TaskDetalElements";
 const TaskDetal = (props) => {
   const { tasks, setTasks } = props;
-  const [openForm, setOpenForm] = React.useState(false)
+  const [openForm, setOpenForm] = React.useState(false);
   const params = useParams();
   const task = tasks.find((task) => task.id === Number(params.taskId));
   const addNewDesc = React.useRef();
-
+  const home = useNavigate();
+  const handleClick = () => {
+    home("/");
+  };
   const changeDescription = () => {
     if (addNewDesc.current.value) {
       const uptatingDesc = tasks.map((task) =>
@@ -28,7 +30,7 @@ const TaskDetal = (props) => {
 
       setTasks(uptatingDesc);
     }
-    setOpenForm(false)
+    setOpenForm(false);
   };
 
   return (
@@ -36,9 +38,8 @@ const TaskDetal = (props) => {
       <TaskDetalWrapper>
         <TaskDetalHeader>
           <TaskDetalTitle>{task.title}</TaskDetalTitle>
-          <TaskDetalButtonClose>
-            <Link to="/" />
-          </TaskDetalButtonClose>
+
+          <TaskDetalButtonClose onClick={handleClick}></TaskDetalButtonClose>
         </TaskDetalHeader>
 
         <TaskDetalDescription>
@@ -46,14 +47,19 @@ const TaskDetal = (props) => {
         </TaskDetalDescription>
 
         <TaskDetalEdit>
-            {!openForm ?  <ButtonEdit onClick={() => setOpenForm(true)}>Edit Desc</ButtonEdit> :
+          {!openForm ? (
+            <ButtonEdit onClick={() => setOpenForm(true)}>Edit Desc</ButtonEdit>
+          ) : (
             <>
-            <TextArea placeholder="Enter new description..." ref={addNewDesc} />
-          <ButtonEdit onClick={changeDescription}>
-            Changes Description
-          </ButtonEdit></>}
-         
-          
+              <TextArea
+                placeholder="Enter new description..."
+                ref={addNewDesc}
+              />
+              <ButtonEdit onClick={changeDescription}>
+                Changes Description
+              </ButtonEdit>
+            </>
+          )}
         </TaskDetalEdit>
       </TaskDetalWrapper>
     </>

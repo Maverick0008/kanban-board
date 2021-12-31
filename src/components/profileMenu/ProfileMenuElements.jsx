@@ -33,4 +33,8 @@ export const MenuLink = styled.li`
   margin-left: 7px;
   line-height: 16px;
   cursor: pointer;
+
+  :hover {
+    text-decoration: underline;
+  }
 `;
